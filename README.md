@@ -42,10 +42,11 @@ To display the reCapthca widget on your form in your View:
 $this->Captcha->showSimple(array $optional_settings);
 ```
 Multiple recaptcha on a same page
+``` php
 $this->Captcha->init(['field1', 'field2']);
 $this->Captcha->showMultiple('field1');
 $this->Captcha->showMultiple('field2');
-
+```
 Then to verify the reCAPTCHA in your Controller:
 ``` php
 if (!$this->Captcha->validate()) {
