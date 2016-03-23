@@ -11,7 +11,9 @@
         }
     ],
     "require": {
-		"php": ">=5.4"
+        "php": ">=5.4",
+        "cakephp/cakephp": "~3.0",
+        "recaptcha/php5": "v2.0.0"
     },
     "require-dev": {
 		"phpunit/phpunit": "*"
