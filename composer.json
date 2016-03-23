@@ -15,6 +15,9 @@
         "cakephp/cakephp": "3.0.*-dev",
         "recaptcha/php5": "dev-master"
     },
+	"require-dev": {
+	"phpunit/phpunit": "*"
+    },	
     "autoload": {
 		"psr-4": {
 			"Recaptcha\\": "src"
