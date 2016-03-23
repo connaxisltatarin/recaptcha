@@ -27,22 +27,24 @@ CakePlugin::load('Recaptcha');
 In your Controller:
 ``` php
 	public $helpers = array(
-			'Form',
-			'Recaptcha.Captcha' => array(
-					'public_key' => 'PUBLIC_KEY_GOES_HERE',
-					// Optional theme setting
-					'theme' => 'white'));
+		'Form',
+		'Recaptcha.Recaptcha'
+	);
 	public $components = array(
-			'Recaptcha.Captcha' => array(
-					'private_key' => 'PRIVATE_KEY_GOES_HERE'));
+		'Recaptcha.Recaptcha'
+	);
 ```
 
 ## Usage
 
 To display the reCapthca widget on your form in your View:
 ``` php
-$this->Captcha->show(array $optional_settings);
+$this->Captcha->showSimple(array $optional_settings);
 ```
+Multiple recaptcha on a same page
+$this->Captcha->init(['field1', 'field2']);
+$this->Captcha->showMultiple('field1');
+$this->Captcha->showMultiple('field2');
 
 Then to verify the reCAPTCHA in your Controller:
 ``` php
