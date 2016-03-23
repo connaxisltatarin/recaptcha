@@ -4,7 +4,6 @@
     "description": "A CakePHP 3.x plugin that will allow you to interact with Google's reCaptcha API.",
     "keywords": ["recaptcha", "api", "google", "captcha", "php", "cakephp"],
     "license": "BSD",
-    "version": "3.0",
     "authors": [
         {
             "name": "Jason Burgess (Adapted by: Leonardo Tatarin)",
@@ -18,7 +17,7 @@
     },
     "autoload": {
 		"psr-4": {
-			"Recakephp\\": "src"
+			"Recaptcha\\": "src"
 		}
     }
 }
