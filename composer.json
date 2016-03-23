@@ -1,10 +1,9 @@
 {
     "name": "recaptcha/recaptcha",
-    "type": "package",
-    "description": "A CakePHP 3.x plugin that will allow you to interact with Google's reCaptcha API.",
-    "keywords": ["recaptcha", "api", "google", "captcha", "php", "cakephp"],
-    "license": "BSD",
-    "version": "3.0",
+    "description": "CakePHP 3 recaptcha Plugin",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "cakephp3", "recaptcha"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Jason Burgess (Adapted by: Leonardo Tatarin)",
@@ -12,25 +11,23 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "cakephp/cakephp": "~3.0",
-        "recaptcha/php5": "v2.0.0"
+		"php": ">=5.4"
     },
-	"require-dev": {
+    "require-dev": {
 		"phpunit/phpunit": "*"
-    },	
+    },
     "autoload": {
-		"psr-4": {
-			"Recaptcha\\": "src"
-		}
+	"psr-4": {
+		"Recaptcha\\": "src"
+	}
     },
     "autoload-dev": {
 		"psr-4": {
-            "Recaptcha\\Test\\": "tests",
+			"Recaptcha\\Test\\": "tests",
 			"Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
-		}
+			}
     },
     "extra": {
 		"installer-name": "Recaptcha"
-    }	
+    }
 }
