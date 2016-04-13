@@ -27,20 +27,35 @@ class RecaptchaHelper extends Helper
 		if(!is_array($fields)){
 			$fields = [$fields];
 		}
-		
-		$this->_fields = $fields;
+        
+        foreach ($fields as $field => $options) {
+            if (is_array($options)) {
+                $this->_fields[$field] = $options;
+            }
+            else {
+                $this->_fields[$options] = null;
+            }
+        }
+        
+		$fields = $this->_fields;
 		
 		$html = '<script src="//www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit" async defer></script>';
 		$html .= '<script type="text/javascript">';
 		
-		foreach($fields as $field){
+		foreach($fields as $field => $options){
 			$html .= 'var recaptcha'.$field.';';
 		}
 		
 		$html .= 'var CaptchaCallback = function(){';
 		
-		foreach($fields as $field){
-			$html .= 'recaptcha'.$field.' = grecaptcha.render("'.$field.'", {"sitekey" : "'.$this->_getPublicKey().'"});';
+		foreach($fields as $field => $options){
+            $text = '';
+            if ($options) {
+                foreach($options as $k => $v) {
+                    $text = ",\"$k\" : \"$v\"";
+                }
+            }
+			$html .= 'recaptcha'.$field.' = grecaptcha.render("'.$field.'", {"sitekey" : "'.$this->_getPublicKey().'" '.$text.'});';
 		}
 				
 		$html .= '};';
@@ -81,7 +96,7 @@ class RecaptchaHelper extends Helper
     }
 	
 	public function showMultiple($field){
-		if(!in_array($field, $this->_fields)){
+		if(!key_exists($field, $this->_fields)){
 			throw new Exception('Please add \''.$field.'\' param to init(), example: $this->Recaptcha->init([\''.$field.'\'])');
 		}
 		
